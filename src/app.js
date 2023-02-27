@@ -9,7 +9,7 @@ let isCVC = /^[0-9]{3,4}$/;
 let Amount = /^[0-9]{1,}$/;
 let firstName = /^[a-zA-Z]{3,}$/;
 let lastName = /^[a-zA-Z]{3,}$/;
-let City = /^[a-zA-Z]{3,}$/;
+let City = /^[a-zA-Z\s]{3,}$/;
 let Postal = /^[0-9]{4,9}$/;
 let Message = /^[a-zA-Z,.?\s]{1,}$/; /*includes point, question mark, spaces*/
 
@@ -31,7 +31,7 @@ form.addEventListener("submit", deliver => {
   /*check all failure points*/
 
   /*failure for Credit Card Number*/
-  if (numCrd == "" || !creditCard.test(numCrd)) {
+  if (numCrd == "" || !creditCard.test(numCrd.value)) {
     fullSub = false;
     numCrd.classList.remove("is-valid");
     numCrd.classList.add("is-invalid");
@@ -45,7 +45,7 @@ form.addEventListener("submit", deliver => {
   }
 
   /*failure for CVC number*/
-  if (CVCCard == "" || !isCVC.test(CVCCard)) {
+  if (CVCCard == "" || !isCVC.test(CVCCard.value)) {
     fullSub = false;
     CVCCard.classList.remove("is-valid");
     CVCCard.classList.add("is-invalid");
@@ -59,7 +59,7 @@ form.addEventListener("submit", deliver => {
   }
 
   /*failure for amount*/
-  if (amountCard == "" || !Amount.test(amountCard)) {
+  if (amountCard == "" || !Amount.test(amountCard.value)) {
     fullSub = false;
     amountCard.classList.remove("is-valid");
     amountCard.classList.add("is-invalid");
@@ -73,7 +73,7 @@ form.addEventListener("submit", deliver => {
   }
 
   /*failure for first name*/
-  if (inName == "" || !firstName.test(inName)) {
+  if (inName == "" || !firstName.test(inName.value)) {
     fullSub = false;
     inName.classList.remove("is-valid");
     inName.classList.add("is-invalid");
@@ -87,7 +87,7 @@ form.addEventListener("submit", deliver => {
   }
 
   /*failure for city*/
-  if (inCity == "" || !City.test(inCity)) {
+  if (inCity == "" || !City.test(inCity.value)) {
     fullSub = false;
     inCity.classList.remove("is-valid");
     inCity.classList.add("is-invalid");
@@ -101,7 +101,7 @@ form.addEventListener("submit", deliver => {
   }
 
   /*failure for last name*/
-  if (inLast == "" || !lastName.test(inLast)) {
+  if (inLast == "" || !lastName.test(inLast.value)) {
     fullSub = false;
     inLast.classList.remove("is-valid");
     inLast.classList.add("is-invalid");
@@ -129,7 +129,7 @@ form.addEventListener("submit", deliver => {
   }
 
   /*failure for postal code*/
-  if (psCode == "" || !Postal.test(psCode)) {
+  if (psCode == "" || !Postal.test(psCode.value)) {
     fullSub = false;
     psCode.classList.remove("is-valid");
     psCode.classList.add("is-invalid");
@@ -143,7 +143,7 @@ form.addEventListener("submit", deliver => {
   }
 
   /*failure for message*/
-  if (mssg == "" || !Message.test(mssg)) {
+  if (mssg == "" || !Message.test(mssg.value)) {
     fullSub = false;
     mssg.classList.remove("is-valid");
     mssg.classList.add("is-invalid");

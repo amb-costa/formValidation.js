@@ -51,12 +51,13 @@
               <div class="card-body">
                 <!--alert with display:none unless some inputs are missing-->
                 <div class="alert alert-danger d-none" role="alert">
-                  Some fields are missing
+                  Some fields are missing. Press enter after correcting each
+                  field
                 </div>
 
                 <!--start whole form-->
                 <!--edits : class = is-valid-->
-                <!--edits: span with error message-->
+                <!--edits: small with error message-->
                 <div class="container p-0">
                   <!--start upper row-->
                   <div class="row my-2">
@@ -69,8 +70,8 @@
                         id="numCard"
                         placeholder="XXXXXXXXXXXXXXXX"
                       />
-                      <span class="d-none" id="numCardError"
-                        >Please enter a valid card number</span
+                      <small class="d-none text-muted m-1" id="numCardError"
+                        >Please enter a valid card number</small
                       >
                     </fieldset>
                     <fieldset class="col">
@@ -82,8 +83,8 @@
                         id="CVCCard"
                         placeholder="0000"
                       />
-                      <span class="d-none" id="CVCCardError"
-                        >Please enter a valid CVC</span
+                      <small class="d-none text-muted m-1" id="CVCCardError"
+                        >Please enter a valid CVC</small
                       >
                     </fieldset>
                     <fieldset class="col">
@@ -95,8 +96,8 @@
                         id="amountCard"
                         placeholder="Amount"
                       />
-                      <span class="d-none" id="amountCardError"
-                        >Please enter a valid amount</span
+                      <small class="d-none text-muted m-1" id="amountCardError"
+                        >Please enter a valid amount</small
                       >
                     </fieldset>
                   </div>
@@ -118,8 +119,8 @@
                             class="form-control is-valid"
                             id="inName"
                           />
-                          <span class="d-none" id="inNameError"
-                            >Please enter a valid name</span
+                          <small class="d-none text-muted m-1" id="inNameError"
+                            >Please enter a valid name</small
                           >
                         </fieldset>
                         <fieldset class="col-12 mb-3">
@@ -130,8 +131,8 @@
                             class="form-control is-valid"
                             id="inCity"
                           />
-                          <span class="d-none" id="inCityError"
-                            >Please enter a valid city</span
+                          <small class="d-none text-muted m-1" id="inCityError"
+                            >Please enter a valid city</small
                           >
                         </fieldset>
                         <fieldset class="col-12">
@@ -213,8 +214,8 @@
                             class="form-control is-valid"
                             id="inLast"
                           />
-                          <span class="d-none" id="inLastError"
-                            >Please write a valid name</span
+                          <small class="d-none text-muted m-1" id="inLastError"
+                            >Please write a valid name</small
                           >
                         </fieldset>
                       </div>
@@ -235,8 +236,8 @@
                               >and maine is scary, thanks stephen king</option
                             >
                           </select>
-                          <span class="d-none" id="usStateError"
-                            >Please enter a valid state</span
+                          <small class="d-none text-muted m-1" id="usStateError"
+                            >Please enter a valid state</small
                           >
                         </fieldset>
                         <!--end left col-->
@@ -251,8 +252,8 @@
                             class="form-control is-valid"
                             id="psCode"
                           />
-                          <span class="d-none" id="psCodeError"
-                            >Please enter a valid postal code</span
+                          <small class="d-none text-muted m-1" id="psCodeError"
+                            >Please enter a valid postal code</small
                           >
                         </fieldset>
                         <!--end right col-->
@@ -271,9 +272,9 @@
                           <small id="emailHelp" class="form-text text-muted"
                             >Add any notes here.</small
                           >
-                          <span class="d-none" id="mssgError"
+                          <small class="d-none text-muted m-1" id="mssgError"
                             >Please enter letters, points, commas, spaces and
-                            question marks only</span
+                            question marks only</small
                           >
                         </fieldset>
                       </div>
