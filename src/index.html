@@ -13,12 +13,21 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
     <title>Cool payment form!</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
@@ -40,12 +49,14 @@
 
               <!--start card-body for alert + proper form-->
               <div class="card-body">
-                <div class="alert alert-danger" role="alert">
+                <!--alert with display:none unless some inputs are missing-->
+                <div class="alert alert-danger d-none" role="alert">
                   Some fields are missing
                 </div>
-                -->
 
                 <!--start whole form-->
+                <!--edits : class = is-valid-->
+                <!--edits: span with error message-->
                 <div class="container p-0">
                   <!--start upper row-->
                   <div class="row my-2">
@@ -54,30 +65,39 @@
                       <label for="numCard" class="form-label">Card #</label>
                       <input
                         type="text"
-                        class="form-control"
+                        class="form-control is-valid"
                         id="numCard"
-                        placeholder="XXXXXXXXXXXXXX"
+                        placeholder="XXXXXXXXXXXXXXXX"
                       />
+                      <span class="d-none" id="numCardError"
+                        >Please enter a valid card number</span
+                      >
                     </fieldset>
                     <fieldset class="col">
                       <!--exclusive col 4 CVC-->
                       <label for="CVCCard" class="form-label">CVC #</label>
                       <input
                         type="text"
-                        class="form-control"
+                        class="form-control is-valid"
                         id="CVCCard"
                         placeholder="0000"
                       />
+                      <span class="d-none" id="CVCCardError"
+                        >Please enter a valid CVC</span
+                      >
                     </fieldset>
                     <fieldset class="col">
                       <!--exclusive col 4 amount-->
                       <label for="amountCard" class="form-label">Amount</label>
                       <input
                         type="text"
-                        class="form-control"
+                        class="form-control is-valid"
                         id="amountCard"
                         placeholder="Amount"
                       />
+                      <span class="d-none" id="amountCardError"
+                        >Please enter a valid amount</span
+                      >
                     </fieldset>
                   </div>
                   <!--end upper row-->
@@ -93,12 +113,26 @@
                           <label for="inName" class="form-label"
                             >First Name</label
                           >
-                          <input type="text" class="form-control" id="inName" />
+                          <input
+                            type="text"
+                            class="form-control is-valid"
+                            id="inName"
+                          />
+                          <span class="d-none" id="inNameError"
+                            >Please enter a valid name</span
+                          >
                         </fieldset>
                         <fieldset class="col-12 mb-3">
                           <!--forced row 4 City-->
                           <label for="inCity" class="form-label">City</label>
-                          <input type="text" class="form-control" id="inCity" />
+                          <input
+                            type="text"
+                            class="form-control is-valid"
+                            id="inCity"
+                          />
+                          <span class="d-none" id="inCityError"
+                            >Please enter a valid city</span
+                          >
                         </fieldset>
                         <fieldset class="col-12">
                           <!--forced row 4 Payment-->
@@ -174,7 +208,14 @@
                           <label for="inLast" class="form-label"
                             >Last Name</label
                           >
-                          <input type="text" class="form-control" id="inLast" />
+                          <input
+                            type="text"
+                            class="form-control is-valid"
+                            id="inLast"
+                          />
+                          <span class="d-none" id="inLastError"
+                            >Please write a valid name</span
+                          >
                         </fieldset>
                       </div>
                       <!--end row last name-->
@@ -184,7 +225,7 @@
                         <fieldset class="col">
                           <!--start left col-->
                           <label for="usState" class="form-label">State</label>
-                          <select id="usState" class="form-select">
+                          <select id="usState" class="form-select is-valid">
                             <option>Pick a state</option>
                             <option>idk i'm not from the us</option>
                             <option>wisconsin is cool tho</option>
@@ -194,6 +235,9 @@
                               >and maine is scary, thanks stephen king</option
                             >
                           </select>
+                          <span class="d-none" id="usStateError"
+                            >Please enter a valid state</span
+                          >
                         </fieldset>
                         <!--end left col-->
 
@@ -202,7 +246,14 @@
                           <label for="psCode" class="form-label"
                             >Postal Code</label
                           >
-                          <input type="text" class="form-control" id="psCode" />
+                          <input
+                            type="text"
+                            class="form-control is-valid"
+                            id="psCode"
+                          />
+                          <span class="d-none" id="psCodeError"
+                            >Please enter a valid postal code</span
+                          >
                         </fieldset>
                         <!--end right col-->
                       </div>
@@ -213,12 +264,16 @@
                         <fieldset class="col">
                           <label for="mssg">Message</label>
                           <textarea
-                            class="form-control mt-1"
+                            class="form-control mt-1 is-valid"
                             id="mssg"
                             rows="4"
                           ></textarea>
                           <small id="emailHelp" class="form-text text-muted"
                             >Add any notes here.</small
+                          >
+                          <span class="d-none" id="mssgError"
+                            >Please enter letters, points, commas, spaces and
+                            question marks only</span
                           >
                         </fieldset>
                       </div>
